@@ -1,15 +1,26 @@
-/node_modules
-/public/hot
-/public/storage
+/vendor/
+/node_modules/
+npm-debug.log
+yarn-error.log
+
+# Laravel 4 
+bootstrap/compiled.php
+app/storage/
+
+# Laravel 5 
+public/hot
+public/storage
+public_html/hot
+public_html/storage
+
+# Various
+Homestead.json
+Homestead.yaml
+docker-compose.override.yml
 /storage/*.key
-/vendor
+/.vagrant
 .env
 .env.backup
 .phpunit.result.cache
-docker-compose.override.yml
-Homestead.json
-Homestead.yaml
-npm-debug.log
-yarn-error.log
 /.idea
 /.vscode
