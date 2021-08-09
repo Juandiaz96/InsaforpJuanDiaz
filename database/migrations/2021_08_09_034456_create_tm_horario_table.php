@@ -17,8 +17,9 @@ class CreateTmHorarioTable extends Migration
             $table->increments('id');
             $table->date('fecha');
             $table->time('hora');
-            $table->integer('tm_evento_id')->unsigned();
-            $table->foreign('tm_evento_id')->references('id')->on('tm_evento');
+            $table->integer('evento_id')->unsigned();
+            $table->foreign('evento_id')->references('id')->on('tm_evento');
+            $table->timestamps();
         });
     }
 

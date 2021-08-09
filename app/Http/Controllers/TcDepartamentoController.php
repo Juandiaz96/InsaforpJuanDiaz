@@ -14,7 +14,7 @@ class TcDepartamentoController extends Controller
      */
     public function index()
     {
-        $departamento = tcDepartamento::all(['id','nombre','ISOcode','estado']);
+        $departamento = tcDepartamento::all(['id','nombre','ISOcode','estado','zona_id']);
         return response()->json($departamento);
     }
 
@@ -96,6 +96,18 @@ class TcDepartamentoController extends Controller
         $tc_departamento->delete();
         return response()->json([
             'message'=>'Departamento Eliminado con Éxito'
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cargarZona() {
+        $zona = tcZona::all(['id','nombre']);
+        return response()->json([
+            'zona'=>$zona
         ]);
     }
 }

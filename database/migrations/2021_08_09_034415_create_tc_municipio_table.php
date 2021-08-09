@@ -17,8 +17,8 @@ class CreateTcMunicipioTable extends Migration
             $table->increments('id');
             $table->string('nombre',50);
             $table->boolean('estado')->default(true);
-            $table->integer('tc_departamento_id')->unsigned();
-            $table->foreign('tc_departamento_id')->references('id')->on('tc_departamento');
+            $table->integer('departamento_id')->unsigned();
+            $table->foreign('departamento_id')->references('id')->on('tc_departamento');
             $table->timestamps();
         });
     }

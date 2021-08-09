@@ -14,7 +14,8 @@ class TmEventoController extends Controller
      */
     public function index()
     {
-        //
+        $evento = tmEvento::all([]);
+        return response()->json($evento);
     }
 
     /**
@@ -35,7 +36,11 @@ class TmEventoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $evento = tmEvento::create($request->post());
+        return response()->json([
+            'message'=>'Evento Almacenado con Éxito',
+            'evento'=>$evento
+        ]);
     }
 
     /**
@@ -46,7 +51,7 @@ class TmEventoController extends Controller
      */
     public function show(tm_evento $tm_evento)
     {
-        //
+        return response()->json($tm_evento);
     }
 
     /**
@@ -57,7 +62,11 @@ class TmEventoController extends Controller
      */
     public function edit(tm_evento $tm_evento)
     {
-        //
+        $tm_evento->fill($request->post()->save());
+        return response()->json([
+            'message'=>'Evento Editado con Éxito',
+            'evento'=>$tm_evento
+        ]);
     }
 
     /**
@@ -69,7 +78,11 @@ class TmEventoController extends Controller
      */
     public function update(Request $request, tm_evento $tm_evento)
     {
-        //
+        $tm_evento->fill($request->post()->save());
+        return response()->json([
+            'message'=>'Evento Actualizado con Éxito',
+            'evento'=>$tm_evento
+        ]);
     }
 
     /**
@@ -80,6 +93,105 @@ class TmEventoController extends Controller
      */
     public function destroy(tm_evento $tm_evento)
     {
-        //
+        $tm_evento->delete();
+        return response()->json([
+            'message'=>'Evento Eliminado con Éxito'
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cargarDepartamento() {
+        $departamento = tcDepartamento::all(['id','nombre','ISOcode']);
+        return response()->json([
+            'departamento'=>$departamento
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cargarMunicipio() {
+        $municipio = tcMunicipio::all(['id','nombre','departamento_id']);
+        return response()->json([
+            'municipio'=>$municipio
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cargarFacilitador() {
+        $facilitador = tcFacilitador::all(['id','nombre','apellido']);
+        return response()->json([
+            'facilitador'=>$facilitador
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cargarModalidad() {
+        $modalidad = tcModalidad::all(['id','nombre']);
+        return response()->json([
+            'modalidad'=>$modalidad
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cargarPrograma() {
+        $programa = tcPrograma::all(['id','nombre']);
+        return response()->json([
+            'programa'=>$programa
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cargarTipoCosto() {
+        $tipoCosto = tcTipoCosto::all(['id','nombre']);
+        return response()->json([
+            'tipoCosto'=>$tipoCosto
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cargarZona() {
+        $zona = tcZona::all(['id','nombre']);
+        return response()->json([
+            'zona'=>$zona
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cargarHorario() {
+        $horario = tmHorario::all(['id','fecha','hora','evento_id']);
+        return response()->json([
+            'horario'=>$horario
+        ]);
     }
 }

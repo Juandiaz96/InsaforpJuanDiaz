@@ -14,7 +14,8 @@ class TmHorarioController extends Controller
      */
     public function index()
     {
-        //
+        $horario = tmHorario::all([]);
+        return response()->json($horario);
     }
 
     /**
@@ -35,7 +36,11 @@ class TmHorarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $horario = tmHorario::create($request->post());
+        return response()->json([
+            'message'=>'Horario Almacenado con Éxito',
+            'horario'=>$horario
+        ]);
     }
 
     /**
@@ -46,7 +51,7 @@ class TmHorarioController extends Controller
      */
     public function show(tm_horario $tm_horario)
     {
-        //
+        return response()->json($tm_horario);
     }
 
     /**
@@ -57,7 +62,11 @@ class TmHorarioController extends Controller
      */
     public function edit(tm_horario $tm_horario)
     {
-        //
+        $tm_horario->fill($request->post()->save());
+        return response()->json([
+            'message'=>'Horario Editado con Éxito',
+            'horario'=>$tm_horario
+        ]);
     }
 
     /**
@@ -69,7 +78,11 @@ class TmHorarioController extends Controller
      */
     public function update(Request $request, tm_horario $tm_horario)
     {
-        //
+        $tm_horario->fill($request->post()->save());
+        return response()->json([
+            'message'=>'Horario Actualizado con Éxito',
+            'horario'=>$tm_horario
+        ]);
     }
 
     /**
@@ -80,6 +93,9 @@ class TmHorarioController extends Controller
      */
     public function destroy(tm_horario $tm_horario)
     {
-        //
+        $tm_horario->delete();
+        return response()->json([
+            'message'=>'Horario Eliminado con Éxito'
+        ]);
     }
 }

@@ -14,7 +14,7 @@ class TcMunicipioController extends Controller
      */
     public function index()
     {
-        $municipio = tcMunicipio::all(['id','nombre','estado','tc_departamento_id']);
+        $municipio = tcMunicipio::all(['id','nombre','estado','departamento_id']);
         return response()->json($municipio);
     }
 
@@ -96,6 +96,18 @@ class TcMunicipioController extends Controller
         $tc_municipio->delete();
         return response()->json([
             'message'=>'Municipio Eliminado con Éxito'
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cargarDepartamento() {
+        $departamento = tcDepartamento::all(['id','nombre']);
+        return response()->json([
+            'departamento'=>$departamento
         ]);
     }
 }

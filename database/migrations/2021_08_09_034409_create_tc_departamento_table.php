@@ -18,8 +18,8 @@ class CreateTcDepartamentoTable extends Migration
             $table->string('nombre',50);
             $table->char('ISOcode', 5);
             $table->boolean('estado')->default(true);
-            $table->integer('tc_zona_id')->unsigned();
-            $table->foreign('tc_zona_id')->references('id')->on('tc_zona');            
+            $table->integer('zona_id')->unsigned();
+            $table->foreign('zona_id')->references('id')->on('tc_zona');            
             $table->timestamps();
         });
     }
