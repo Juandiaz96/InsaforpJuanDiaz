@@ -2,12 +2,11 @@ require('./bootstrap');
 import vue from 'vue'
 window.Vue = vue;
 
-import App from './views/app.vue';
+import App from './components/app.vue';
 import VueRouter from 'vue-router';
 import VueAxios from 'vue-axios';
 import axios from 'axios';
 import {routes} from './route';
-import moment from "moment";
  
 Vue.use(VueRouter);
 Vue.use(VueAxios, axios);

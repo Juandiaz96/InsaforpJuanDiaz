@@ -1,0 +1,75 @@
+<template>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Actualizar Facilitador</h4>
+                </div>
+                <div class="card-body">
+                    <form @submit.prevent="update">
+                        <div class="row">
+                            <div class="col-12 mb-2">
+                                <div class="form-group">
+                                    <label>Nombre</label>
+                                    <input type="text" class="form-control" v-model="facilitador.nombre">
+                                </div>
+                            </div>
+                            <div class="col-12 mb-2">
+                                <div class="form-group">
+                                    <label>Apellidos</label>
+                                    <input type="text" class="form-control" v-model="facilitador.apellido">
+                                </div>
+                            </div>
+                            <div class="col-12 mb-2">
+                                <div class="form-group">
+                                    <label>Correo</label>
+                                    <input type="text" class="form-control" v-model="facilitador.correo">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary">Actualizar</button>
+                            </div>
+                        </div>                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    name:"update-facilitador",
+    data(){
+        return {
+            facilitador:{
+                nombre:"",
+                apellido:"",
+                correo:"",
+                _method:"patch"
+            }
+        }
+    },
+    mounted(){
+        this.showFacilitador()
+    },
+    methods:{
+        async showFacilitador(){
+            await this.axios.get(`/api/facilitador/${this.$route.params.id}`).then(response=>{
+                const { title, description } = response.data
+                this.facilitador.title = title
+                this.facilitador.description = description
+            }).catch(error=>{
+                console.log(error)
+            })
+        },
+        async update(){
+            await this.axios.post(`/api/facilitador/${this.$route.params.id}`,this.facilitador).then(response=>{
+                this.$router.push({name:"facilitadorList"})
+            }).catch(error=>{
+                console.log(error)
+            })
+        }
+    }
+}
+</script>

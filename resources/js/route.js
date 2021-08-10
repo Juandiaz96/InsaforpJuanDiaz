@@ -1,36 +1,36 @@
-const Welcome = () => import('./views/Welcome.vue' /* webpackChunkName: "resource/js/components/welcome" */)
+const Welcome = () => import('./components/Welcome.vue' /* webpackChunkName: "resource/js/components/welcome" */)
 /*Routes tmEvento*/
-const eventoList = () => import('./views/tmEvento/List.vue' /* webpackChunkName: "resource/js/components/category/list" */)
-const eventoCreate = () => import('./views/tmEvento/Create.vue' /* webpackChunkName: "resource/js/components/category/add" */)
-const eventoEdit = () => import('./views/tmEvento/Edit.vue' /* webpackChunkName: "resource/js/components/category/edit" */)
+const eventoList = () => import('./components/tmEvento/List.vue' /* webpackChunkName: "resource/js/components/tmEvento/list" */)
+const eventoCreate = () => import('./components/tmEvento/Create.vue' /* webpackChunkName: "resource/js/components/tmEvento/Create" */)
+const eventoEdit = () => import('./components/tmEvento/Edit.vue' /* webpackChunkName: "resource/js/components/tmEvento/Edit" */)
 /*Routes tcFacilitador*/
-const facilitadorList = () => import('./views/tcFacilitador/List.vue' /* webpackChunkName: "resource/js/components/category/list" */)
-const facilitadorCreate = () => import('./views/tcFacilitador/Add.vue' /* webpackChunkName: "resource/js/components/category/add" */)
-const facilitadorEdit = () => import('./views/tcFacilitador/Edit.vue' /* webpackChunkName: "resource/js/components/category/edit" */)
+const facilitadorList = () => import('./components/tcFacilitador/List.vue' /* webpackChunkName: "resource/js/components/tcFacilitador/list" */)
+const facilitadorCreate = () => import('./components/tcFacilitador/Create.vue' /* webpackChunkName: "resource/js/components/tcFacilitador/Create" */)
+const facilitadorEdit = () => import('./components/tcFacilitador/Edit.vue' /* webpackChunkName: "resource/js/components/tcFacilitador/Edit" */)
 /*Routes tcModalidad*/
-const modalidadList = () => import('./views/tcModalidad/List.vue' /* webpackChunkName: "resource/js/components/category/list" */)
-const modalidadCreate = () => import('./views/tcModalidad/Add.vue' /* webpackChunkName: "resource/js/components/category/add" */)
-const modalidadEdit = () => import('./views/tcModalidad/Edit.vue' /* webpackChunkName: "resource/js/components/category/edit" */)
+const modalidadList = () => import('./components/tcModalidad/List.vue' /* webpackChunkName: "resource/js/components/tcModalidad/list" */)
+const modalidadCreate = () => import('./components/tcModalidad/Create.vue' /* webpackChunkName: "resource/js/components/tcModalidad/Create" */)
+const modalidadEdit = () => import('./components/tcModalidad/Edit.vue' /* webpackChunkName: "resource/js/components/tcModalidad/Edit" */)
 /*Routes tcPrograma*/
-const programaList = () => import('./views/tcPrograma/List.vue' /* webpackChunkName: "resource/js/components/category/list" */)
-const programaCreate = () => import('./views/tcPrograma/Add.vue' /* webpackChunkName: "resource/js/components/category/add" */)
-const programaEdit = () => import('./views/tcPrograma/Edit.vue' /* webpackChunkName: "resource/js/components/category/edit" */)
+const programaList = () => import('./components/tcPrograma/List.vue' /* webpackChunkName: "resource/js/components/tcPrograma/list" */)
+const programaCreate = () => import('./components/tcPrograma/Create.vue' /* webpackChunkName: "resource/js/components/tcPrograma/Create" */)
+const programaEdit = () => import('./components/tcPrograma/Edit.vue' /* webpackChunkName: "resource/js/components/tcPrograma/Edit" */)
 /*Routes tcTipoCosto*/
-const tipoCostoList = () => import('./views/tcTipoCosto/List.vue' /* webpackChunkName: "resource/js/components/category/list" */)
-const tipoCostoCreate = () => import('./views/tcTipoCosto/Add.vue' /* webpackChunkName: "resource/js/components/category/add" */)
-const tipoCostoEdit = () => import('./views/tcTipoCosto/Edit.vue' /* webpackChunkName: "resource/js/components/category/edit" */)
+const tipoCostoList = () => import('./components/tcTipoCosto/List.vue' /* webpackChunkName: "resource/js/components/tcTipoCosto/list" */)
+const tipoCostoCreate = () => import('./components/tcTipoCosto/Create.vue' /* webpackChunkName: "resource/js/components/tcTipoCosto/Create" */)
+const tipoCostoEdit = () => import('./components/tcTipoCosto/Edit.vue' /* webpackChunkName: "resource/js/components/tcTipoCosto/Edit" */)
 /*Routes tcDepartamento*/
-const departamentoList = () => import('./views/tcDepartamento/List.vue' /* webpackChunkName: "resource/js/components/category/list" */)
-const departamentoCreate = () => import('./views/tcDepartamento/Add.vue' /* webpackChunkName: "resource/js/components/category/add" */)
-const departamentoEdit = () => import('./views/tcDepartamento/Edit.vue' /* webpackChunkName: "resource/js/components/category/edit" */)
+const departamentoList = () => import('./components/tcDepartamento/List.vue' /* webpackChunkName: "resource/js/components/tcDepartamento/list" */)
+const departamentoCreate = () => import('./components/tcDepartamento/Create.vue' /* webpackChunkName: "resource/js/components/tcDepartamento/Create" */)
+const departamentoEdit = () => import('./components/tcDepartamento/Edit.vue' /* webpackChunkName: "resource/js/components/tcDepartamento/Edit" */)
 /*Routes tcMunicipio*/
-const municipioList = () => import('./views/tcMunicipio/List.vue' /* webpackChunkName: "resource/js/components/category/list" */)
-const municipioCreate = () => import('./views/tcMunicipio/Add.vue' /* webpackChunkName: "resource/js/components/category/add" */)
-const municipioEdit = () => import('./views/tcMunicipio/Edit.vue' /* webpackChunkName: "resource/js/components/category/edit" */)
+const municipioList = () => import('./components/tcMunicipio/List.vue' /* webpackChunkName: "resource/js/components/tcMunicipio/list" */)
+const municipioCreate = () => import('./components/tcMunicipio/Create.vue' /* webpackChunkName: "resource/js/components/tcMunicipio/Create" */)
+const municipioEdit = () => import('./components/tcMunicipio/Edit.vue' /* webpackChunkName: "resource/js/components/tcMunicipio/Edit" */)
 /*Routes tcZona*/
-const zonaList = () => import('./views/tcZona/List.vue' /* webpackChunkName: "resource/js/components/category/list" */)
-const zonaCreate = () => import('./views/tcZona/Add.vue' /* webpackChunkName: "resource/js/components/category/add" */)
-const zonaEdit = () => import('./views/tcZona/Edit.vue' /* webpackChunkName: "resource/js/components/category/edit" */)
+const zonaList = () => import('./components/tcZona/List.vue' /* webpackChunkName: "resource/js/components/tcZona/list" */)
+const zonaCreate = () => import('./components/tcZona/Create.vue' /* webpackChunkName: "resource/js/components/tcZona/Create" */)
+const zonaEdit = () => import('./components/tcZona/Edit.vue' /* webpackChunkName: "resource/js/components/tcZona/Edit" */)
 
 export const routes = [
     {
@@ -49,120 +49,120 @@ export const routes = [
         component: eventoEdit
     },
     {
-        name: 'eventoAdd',
+        name: 'eventoCreate',
         path: '/tmEvento/create',
         component: eventoCreate
     },
 
     {
         name: 'facilitadorList',
-        path: '/tmFacilitador',
+        path: '/tcFacilitador',
         component: facilitadorList
     },
     {
         name: 'facilitadorEdit',
-        path: '/tmFacilitador/:id/edit',
+        path: '/tcFacilitador/:id/edit',
         component: facilitadorEdit
     },
     {
-        name: 'facilitadorAdd',
-        path: '/tmFacilitador/add',
+        name: 'facilitadorCreate',
+        path: '/tcFacilitador/create',
         component: facilitadorCreate
     },
 
     {
         name: 'modalidadList',
-        path: '/tmModalidad',
+        path: '/tcModalidad',
         component: modalidadList
     },
     {
         name: 'modalidadEdit',
-        path: '/tmModalidad/:id/edit',
+        path: '/tcModalidad/:id/edit',
         component: modalidadEdit
     },
     {
-        name: 'modalidadAdd',
-        path: '/tmModalidad/add',
+        name: 'modalidadCreate',
+        path: '/tcModalidad/create',
         component: modalidadCreate
     },
 
     {
         name: 'programaList',
-        path: '/tmPrograma',
+        path: '/tcPrograma',
         component: programaList
     },
     {
         name: 'programaEdit',
-        path: '/tmPrograma/:id/edit',
+        path: '/tcPrograma/:id/edit',
         component: programaEdit
     },
     {
-        name: 'programaAdd',
-        path: '/tmPrograma/add',
+        name: 'programaCreate',
+        path: '/tcPrograma/create',
         component: programaCreate
     },
 
     {
         name: 'tipoCostoList',
-        path: '/tmTipoCosto',
+        path: '/tcTipoCosto',
         component: tipoCostoList
     },
     {
         name: 'tipoCostoEdit',
-        path: '/tmTipoCosto/:id/edit',
+        path: '/tcTipoCosto/:id/edit',
         component: tipoCostoEdit
     },
     {
-        name: 'tipoCostoAdd',
-        path: '/tmTipoCosto/add',
+        name: 'tipoCostoCreate',
+        path: '/tcTipoCosto/create',
         component: tipoCostoCreate
     },
 
     {
         name: 'departamentoList',
-        path: '/tmDepartamento',
+        path: '/tcDepartamento',
         component: departamentoList
     },
     {
         name: 'departamentoEdit',
-        path: '/tmDepartamento/:id/edit',
+        path: '/tcDepartamento/:id/edit',
         component: departamentoEdit
     },
     {
-        name: 'departamentoAdd',
-        path: '/tmDepartamento/add',
+        name: 'departamentoCreate',
+        path: '/tcDepartamento/create',
         component: departamentoCreate
     },
 
     {
         name: 'municipioList',
-        path: '/tmMunicipio',
+        path: '/tcMunicipio',
         component: municipioList
     },
     {
         name: 'municipioEdit',
-        path: '/tmMunicipio/:id/edit',
+        path: '/tcMunicipio/:id/edit',
         component: municipioEdit
     },
     {
-        name: 'municipioAdd',
-        path: '/tmMunicipio/add',
+        name: 'municipioCreate',
+        path: '/tcMunicipio/create',
         component: municipioCreate
     },
 
     {
         name: 'zonaList',
-        path: '/tmZona',
+        path: '/tcZona',
         component: zonaList
     },
     {
         name: 'zonaEdit',
-        path: '/tmZona/:id/edit',
+        path: '/tcZona/:id/edit',
         component: zonaEdit
     },
     {
-        name: 'zonaAdd',
-        path: '/tmZona/add',
+        name: 'zonaCreate',
+        path: '/tcZona/create',
         component: zonaCreate
     }
 ]
