@@ -79,18 +79,50 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "facilitadores",
+  name: "eventos",
   data: function data() {
     return {
-      facilitadores: []
+      eventos: []
     };
   },
   mounted: function mounted() {
-    this.getFacilitadores();
+    this.getEventos();
   },
   methods: {
-    getFacilitadores: function getFacilitadores() {
+    getEventos: function getEventos() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -99,11 +131,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this.axios.get('/api/facilitador').then(function (response) {
-                  _this.facilitadores = response.data;
+                return _this.axios.get('/api/evento').then(function (response) {
+                  _this.eventos = response.data;
                 })["catch"](function (error) {
                   console.log(error);
-                  _this.facilitadores = [];
+                  _this.eventos = [];
                 });
 
               case 2:
@@ -114,12 +146,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
-    deleteFacilitador: function deleteFacilitador(id) {
+    deleteEvento: function deleteEvento(id) {
       var _this2 = this;
 
       if (confirm("Está seguro de eliminar el registro?")) {
-        this.axios["delete"]("/api/facilitador/".concat(id)).then(function (response) {
-          _this2.getFacilitadores();
+        this.axios["delete"]("/api/evento/".concat(id)).then(function (response) {
+          _this2.getEventos();
         })["catch"](function (error) {
           console.log(error);
         });
@@ -991,7 +1023,7 @@ var render = function() {
           "router-link",
           {
             staticClass: "btn btn-primary",
-            attrs: { to: { name: "facilitadorAdd" } }
+            attrs: { to: { name: "eventoAdd" } }
           },
           [_vm._v("Nuevo")]
         )
@@ -1008,24 +1040,56 @@ var render = function() {
             _c("table", { staticClass: "table table-bordered" }, [
               _vm._m(1),
               _vm._v(" "),
-              _vm.facilitadores.length > 0
+              _vm.eventos.length > 0
                 ? _c(
                     "tbody",
-                    _vm._l(_vm.facilitadores, function(facilitador, key) {
+                    _vm._l(_vm.eventos, function(evento, key) {
                       return _c("tr", { key: key }, [
-                        _c("td", [_vm._v(_vm._s(facilitador.id))]),
+                        _c("td", [_vm._v(_vm._s(evento.id))]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(facilitador.nombre))]),
+                        _c("td", [_vm._v(_vm._s(evento.nombre))]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(facilitador.apellido))]),
+                        _c("td", [_vm._v(_vm._s(evento.descripcion))]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(facilitador.correo))]),
+                        _c("td", [_vm._v(_vm._s(evento.fecha_inicio))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(evento.fecha_fin))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(evento.ubicacion))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(evento.departamento_id))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(evento.municipio_id))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(evento.horas_curso))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(evento.modalidad_id))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(evento.tipo_costo_id))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(evento.costo))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(evento.participantes))]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(_vm._s(evento.cantidad_evaluaciones))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(evento.contrato))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(evento.numero_orden_compra))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(evento.compra_bolsa))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(evento.item))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(evento.programa_id))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(evento.facilitador_id))]),
                         _vm._v(" "),
                         _c("td", [
                           _vm._v(
-                            _vm._s(
-                              facilitador.estado == 1 ? "ACTIVO" : "INACTIVO"
-                            )
+                            _vm._s(evento.estado == 1 ? "ACTIVO" : "INACTIVO")
                           )
                         ]),
                         _vm._v(" "),
@@ -1038,8 +1102,8 @@ var render = function() {
                                 staticClass: "btn btn-success",
                                 attrs: {
                                   to: {
-                                    name: "facilitadorEdit",
-                                    params: { id: facilitador.id }
+                                    name: "eventoEdit",
+                                    params: { id: evento.id }
                                   }
                                 }
                               },
@@ -1053,7 +1117,7 @@ var render = function() {
                                 attrs: { type: "button" },
                                 on: {
                                   click: function($event) {
-                                    return _vm.deleteFacilitador(facilitador.id)
+                                    return _vm.deleteEvento(evento.id)
                                   }
                                 }
                               },
@@ -1080,7 +1144,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h4", [_vm._v("Listado de Facilitadores")])
+      _c("h4", [_vm._v("Listado de Eventos")])
     ])
   },
   function() {
@@ -1093,9 +1157,41 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Nombre")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Apellido")]),
+        _c("th", [_vm._v("Descripcion")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Correo")]),
+        _c("th", [_vm._v("Inicio")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Fin")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Ubicación")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Id Departamento")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Id Municipio")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Horas Curso")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Id Modalidad")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Id Tipo Costo")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Costo")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Participantes")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Cant. Eval.")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Contrato")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("# Orden Compra")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("# Compra Bolsa")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("# Item")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Id Programa")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Id Facilitador")]),
         _vm._v(" "),
         _c("th", [_vm._v("Estado")]),
         _vm._v(" "),
@@ -1109,7 +1205,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("tr", [
       _c("td", { attrs: { colspan: "6", align: "center" } }, [
-        _vm._v("No hay facilitadores registrados.")
+        _vm._v("No hay eventos registrados.")
       ])
     ])
   }

@@ -3,7 +3,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Editar Facilitador</h4>
+                    <h4>Editar Departamento</h4>
                 </div>
                 <div class="card-body">
                     <form @submit.prevent="update">
@@ -11,19 +11,13 @@
                             <div class="col-12 mb-2">
                                 <div class="form-group">
                                     <label>Nombre</label>
-                                    <input type="text" class="form-control" v-model="facilitador.nombre">
+                                    <input type="text" class="form-control" v-model="departamento.nombre">
                                 </div>
                             </div>
                             <div class="col-12 mb-2">
                                 <div class="form-group">
                                     <label>Apellidos</label>
-                                    <input type="text" class="form-control" v-model="facilitador.apellido">
-                                </div>
-                            </div>
-                            <div class="col-12 mb-2">
-                                <div class="form-group">
-                                    <label>Correo</label>
-                                    <input type="text" class="form-control" v-model="facilitador.correo">
+                                    <input type="text" class="form-control" v-model="departamento.ISOcode">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -39,10 +33,10 @@
 
 <script>
 export default {
-    name:"update-facilitador",
+    name:"update-departamento",
     data(){
         return {
-            facilitador:{
+            departamento:{
                 nombre:"",
                 apellido:"",
                 correo:"",
@@ -51,22 +45,21 @@ export default {
         }
     },
     mounted(){
-        this.showFacilitador()
+        this.showDepartamento()
     },
     methods:{
-        async showFacilitador(){
-            await this.axios.get(`/api/facilitador/${this.$route.params.id}`).then(response=>{
-                const { nombre,apellido,correo } = response.data
-                this.facilitador.nombre = nombre
-                this.facilitador.apellido = apellido
-                this.facilitador.correo = correo
+        async showDepartamento(){
+            await this.axios.get(`/api/departamento/${this.$route.params.id}`).then(response=>{
+                const { nombre,ISOcode } = response.data
+                this.departamento.nombre = nombre
+                this.departamento.ISOcode = ISOcode
             }).catch(error=>{
                 console.log(error)
             })
         },
         async update(){
-            await this.axios.post(`/api/facilitador/${this.$route.params.id}`,this.facilitador).then(response=>{
-                this.$router.push({name:"facilitadorList"})
+            await this.axios.post(`/api/departamento/${this.$route.params.id}`,this.departamento).then(response=>{
+                this.$router.push({name:"departamentoList"})
             }).catch(error=>{
                 console.log(error)
             })

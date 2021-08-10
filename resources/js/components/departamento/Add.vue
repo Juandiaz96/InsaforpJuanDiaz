@@ -3,7 +3,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Nuevo Facilitador</h4>
+                    <h4>Nuevo Departamento</h4>
                 </div>
                 <div class="card-body">
                     <form @submit.prevent="create">
@@ -11,19 +11,13 @@
                             <div class="col-12 mb-2">
                                 <div class="form-group">
                                     <label>Nombre</label>
-                                    <input type="text" class="form-control" v-model="facilitador.nombre">
+                                    <input type="text" class="form-control" v-model="departamento.nombre">
                                 </div>
                             </div>
                             <div class="col-12 mb-2">
                                 <div class="form-group">
                                     <label>Apellidos</label>
-                                    <input type="text" class="form-control" v-model="facilitador.apellido">
-                                </div>
-                            </div>
-                            <div class="col-12 mb-2">
-                                <div class="form-group">
-                                    <label>Correo</label>
-                                    <input type="text" class="form-control" v-model="facilitador.correo">
+                                    <input type="text" class="form-control" v-model="departamento.ISOcode">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -39,20 +33,19 @@
 
 <script>
 export default {
-    name:"add-facilitador",
+    name:"add-departamento",
     data(){
         return {
-            facilitador:{
+            departamento:{
                 nombre:"",
-                apellido:"",
-                correo:""
+                ISOcode:""
             }
         }
     },
     methods:{
         async create(){
-            await this.axios.post('/api/facilitador',this.facilitador).then(response=>{
-                this.$router.push({name:"facilitadorList"})
+            await this.axios.post('/api/departamento',this.departamento).then(response=>{
+                this.$router.push({name:"departamentoList"})
             }).catch(error=>{
                 console.log(error)
             })

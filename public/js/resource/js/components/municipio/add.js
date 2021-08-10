@@ -63,20 +63,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "add-facilitador",
+  name: "add-municipio",
   data: function data() {
     return {
-      facilitador: {
+      municipio: {
         nombre: "",
-        apellido: "",
-        correo: ""
+        departamento_id: ""
       }
     };
   },
@@ -90,9 +83,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this.axios.post('/api/facilitador', _this.facilitador).then(function (response) {
+                return _this.axios.post('/api/municipio', _this.municipio).then(function (response) {
                   _this.$router.push({
-                    name: "facilitadorList"
+                    name: "municipioList"
                   });
                 })["catch"](function (error) {
                   console.log(error);
@@ -990,23 +983,19 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.facilitador.nombre,
-                          expression: "facilitador.nombre"
+                          value: _vm.municipio.nombre,
+                          expression: "municipio.nombre"
                         }
                       ],
                       staticClass: "form-control",
                       attrs: { type: "text" },
-                      domProps: { value: _vm.facilitador.nombre },
+                      domProps: { value: _vm.municipio.nombre },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
-                          _vm.$set(
-                            _vm.facilitador,
-                            "nombre",
-                            $event.target.value
-                          )
+                          _vm.$set(_vm.municipio, "nombre", $event.target.value)
                         }
                       }
                     })
@@ -1015,60 +1004,28 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "col-12 mb-2" }, [
                   _c("div", { staticClass: "form-group" }, [
-                    _c("label", [_vm._v("Apellidos")]),
+                    _c("label", [_vm._v("ID Departamento")]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.facilitador.apellido,
-                          expression: "facilitador.apellido"
+                          value: _vm.municipio.departamento_id,
+                          expression: "municipio.departamento_id"
                         }
                       ],
                       staticClass: "form-control",
                       attrs: { type: "text" },
-                      domProps: { value: _vm.facilitador.apellido },
+                      domProps: { value: _vm.municipio.departamento_id },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.$set(
-                            _vm.facilitador,
-                            "apellido",
-                            $event.target.value
-                          )
-                        }
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-12 mb-2" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", [_vm._v("Correo")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.facilitador.correo,
-                          expression: "facilitador.correo"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text" },
-                      domProps: { value: _vm.facilitador.correo },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.facilitador,
-                            "correo",
+                            _vm.municipio,
+                            "departamento_id",
                             $event.target.value
                           )
                         }
@@ -1092,7 +1049,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h4", [_vm._v("Nuevo Facilitador")])
+      _c("h4", [_vm._v("Nuevo Municipio")])
     ])
   },
   function() {

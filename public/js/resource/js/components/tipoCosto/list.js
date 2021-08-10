@@ -1097,7 +1097,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("tr", [
       _c("td", { attrs: { colspan: "6", align: "center" } }, [
-        _vm._v("No hay tipoCostos registrados.")
+        _vm._v("No hay Tipo de Costos registrados.")
       ])
     ])
   }

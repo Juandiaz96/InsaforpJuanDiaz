@@ -3,7 +3,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Editar Facilitador</h4>
+                    <h4>Editar Municipio</h4>
                 </div>
                 <div class="card-body">
                     <form @submit.prevent="update">
@@ -11,19 +11,19 @@
                             <div class="col-12 mb-2">
                                 <div class="form-group">
                                     <label>Nombre</label>
-                                    <input type="text" class="form-control" v-model="facilitador.nombre">
+                                    <input type="text" class="form-control" v-model="municipio.nombre">
                                 </div>
                             </div>
                             <div class="col-12 mb-2">
                                 <div class="form-group">
-                                    <label>Apellidos</label>
-                                    <input type="text" class="form-control" v-model="facilitador.apellido">
+                                    <label>ID Departamento</label>
+                                    <input type="text" class="form-control" v-model="municipio.departamento_id">
                                 </div>
                             </div>
                             <div class="col-12 mb-2">
                                 <div class="form-group">
-                                    <label>Correo</label>
-                                    <input type="text" class="form-control" v-model="facilitador.correo">
+                                    <label>Estado</label>
+                                    <input type="text" class="form-control" v-model="municipio.estado">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -39,34 +39,33 @@
 
 <script>
 export default {
-    name:"update-facilitador",
+    name:"update-municipio",
     data(){
         return {
-            facilitador:{
+            municipio:{
                 nombre:"",
-                apellido:"",
-                correo:"",
+                departamento_id:"",
                 _method:"patch"
             }
         }
     },
     mounted(){
-        this.showFacilitador()
+        this.showMunicipio()
     },
     methods:{
-        async showFacilitador(){
-            await this.axios.get(`/api/facilitador/${this.$route.params.id}`).then(response=>{
-                const { nombre,apellido,correo } = response.data
-                this.facilitador.nombre = nombre
-                this.facilitador.apellido = apellido
-                this.facilitador.correo = correo
+        async showMunicipio(){
+            await this.axios.get(`/api/municipio/${this.$route.params.id}`).then(response=>{
+                const { nombre,departamento_id,estado } = response.data
+                this.municipio.nombre = nombre
+                this.municipio.departamento_id = departamento_id
+                this.municipio.estado = estado
             }).catch(error=>{
                 console.log(error)
             })
         },
         async update(){
-            await this.axios.post(`/api/facilitador/${this.$route.params.id}`,this.facilitador).then(response=>{
-                this.$router.push({name:"facilitadorList"})
+            await this.axios.post(`/api/municipio/${this.$route.params.id}`,this.municipio).then(response=>{
+                this.$router.push({name:"municipioList"})
             }).catch(error=>{
                 console.log(error)
             })

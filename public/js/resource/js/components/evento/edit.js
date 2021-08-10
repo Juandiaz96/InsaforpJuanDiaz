@@ -69,23 +69,135 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "update-facilitador",
+  name: "update-evento",
   data: function data() {
     return {
-      facilitador: {
+      evento: {
         nombre: "",
-        apellido: "",
-        correo: "",
+        descripcion: "",
+        fecha_inicio: "",
+        fecha_fin: "",
+        ubicacion: "",
+        departamento_id: "",
+        municipio_id: "",
+        horas_curso: "",
+        modalidad_id: "",
+        tipo_costo_id: "",
+        costo: "",
+        participantes: "",
+        cantidad_evaluaciones: "",
+        contrato: "",
+        numero_orden_compra: "",
+        compra_bolsa: "",
+        item: "",
+        programa_id: "",
+        facilitador_id: "",
         _method: "patch"
       }
     };
   },
   mounted: function mounted() {
-    this.showFacilitador();
+    this.showEvento();
   },
   methods: {
-    showFacilitador: function showFacilitador() {
+    shoEvento: function shoEvento() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -94,14 +206,46 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this.axios.get("/api/facilitador/".concat(_this.$route.params.id)).then(function (response) {
+                return _this.axios.get("/api/evento/".concat(_this.$route.params.id)).then(function (response) {
                   var _response$data = response.data,
                       nombre = _response$data.nombre,
-                      apellido = _response$data.apellido,
-                      correo = _response$data.correo;
-                  _this.facilitador.nombre = nombre;
-                  _this.facilitador.apellido = apellido;
-                  _this.facilitador.correo = correo;
+                      descripcion = _response$data.descripcion,
+                      fecha_inicio = _response$data.fecha_inicio,
+                      fecha_fin = _response$data.fecha_fin,
+                      ubicacion = _response$data.ubicacion,
+                      departamento_id = _response$data.departamento_id,
+                      municipio_id = _response$data.municipio_id,
+                      horas_curso = _response$data.horas_curso,
+                      modalidad_id = _response$data.modalidad_id,
+                      tipo_costo_id = _response$data.tipo_costo_id,
+                      costo = _response$data.costo,
+                      participantes = _response$data.participantes,
+                      cantidad_evaluaciones = _response$data.cantidad_evaluaciones,
+                      contrato = _response$data.contrato,
+                      numero_orden_compra = _response$data.numero_orden_compra,
+                      compra_bolsa = _response$data.compra_bolsa,
+                      item = _response$data.item,
+                      programa_id = _response$data.programa_id,
+                      facilitador_id = _response$data.facilitador_id;
+                  _this.evento.nombre = nombre;
+                  _this.evento.descripcion = descripcion;
+                  _this.evento.fecha_inicio = fecha_inicio;
+                  _this.evento.fecha_fin = fecha_fin;
+                  _this.evento.ubicacion = ubicacion;
+                  _this.evento.departamento_id = departamento_id;
+                  _this.evento.municipio_id = municipio_id;
+                  _this.evento.horas_curso = horas_curso;
+                  _this.evento.modalidad_id = modalidad_id;
+                  _this.evento.tipo_costo_id = tipo_costo_id;
+                  _this.evento.costo = costo;
+                  _this.evento.participantes = participantes;
+                  _this.evento.cantidad_evaluaciones = cantidad_evaluaciones;
+                  _this.evento.contrato = contrato;
+                  _this.evento.numero_orden_compra = numero_orden_compra;
+                  _this.evento.compra_bolsa = compra_bolsa;
+                  _this.evento.item = item;
+                  _this.evento.programa_id = programa_id;
+                  _this.evento.facilitador_id = facilitador_id;
                 })["catch"](function (error) {
                   console.log(error);
                 });
@@ -123,9 +267,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return _this2.axios.post("/api/facilitador/".concat(_this2.$route.params.id), _this2.facilitador).then(function (response) {
+                return _this2.axios.post("/api/evento/".concat(_this2.$route.params.id), _this2.evento).then(function (response) {
                   _this2.$router.push({
-                    name: "facilitadorList"
+                    name: "eventoList"
                   });
                 })["catch"](function (error) {
                   console.log(error);
@@ -1023,21 +1167,49 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.facilitador.nombre,
-                          expression: "facilitador.nombre"
+                          value: _vm.evento.nombre,
+                          expression: "evento.nombre"
                         }
                       ],
                       staticClass: "form-control",
                       attrs: { type: "text" },
-                      domProps: { value: _vm.facilitador.nombre },
+                      domProps: { value: _vm.evento.nombre },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.evento, "nombre", $event.target.value)
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 mb-2" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Descripción")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.evento.descripcion,
+                          expression: "evento.descripcion"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.evento.descripcion },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.$set(
-                            _vm.facilitador,
-                            "nombre",
+                            _vm.evento,
+                            "descripcion",
                             $event.target.value
                           )
                         }
@@ -1048,28 +1220,28 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "col-12 mb-2" }, [
                   _c("div", { staticClass: "form-group" }, [
-                    _c("label", [_vm._v("Apellidos")]),
+                    _c("label", [_vm._v("Fecha Inicio")]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.facilitador.apellido,
-                          expression: "facilitador.apellido"
+                          value: _vm.evento.fecha_inicio,
+                          expression: "evento.fecha_inicio"
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { type: "text" },
-                      domProps: { value: _vm.facilitador.apellido },
+                      attrs: { type: "date" },
+                      domProps: { value: _vm.evento.fecha_inicio },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.$set(
-                            _vm.facilitador,
-                            "apellido",
+                            _vm.evento,
+                            "fecha_inicio",
                             $event.target.value
                           )
                         }
@@ -1080,28 +1252,488 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "col-12 mb-2" }, [
                   _c("div", { staticClass: "form-group" }, [
-                    _c("label", [_vm._v("Correo")]),
+                    _c("label", [_vm._v("Fecha Fin")]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.facilitador.correo,
-                          expression: "facilitador.correo"
+                          value: _vm.evento.fecha_fin,
+                          expression: "evento.fecha_fin"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "date" },
+                      domProps: { value: _vm.evento.fecha_fin },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.evento, "fecha_fin", $event.target.value)
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 mb-2" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Ubicación")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.evento.ubicacion,
+                          expression: "evento.ubicacion"
                         }
                       ],
                       staticClass: "form-control",
                       attrs: { type: "text" },
-                      domProps: { value: _vm.facilitador.correo },
+                      domProps: { value: _vm.evento.ubicacion },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.evento, "ubicacion", $event.target.value)
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 mb-2" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Id Departamento")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.evento.departamento_id,
+                          expression: "evento.departamento_id"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.evento.departamento_id },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.$set(
-                            _vm.facilitador,
-                            "correo",
+                            _vm.evento,
+                            "departamento_id",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 mb-2" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Id Municipio")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.evento.municipio_id,
+                          expression: "evento.municipio_id"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.evento.municipio_id },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.evento,
+                            "municipio_id",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 mb-2" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Horas Curso")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.evento.horas_curso,
+                          expression: "evento.horas_curso"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.evento.horas_curso },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.evento,
+                            "horas_curso",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 mb-2" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Id Modalidad")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.evento.modalidad_id,
+                          expression: "evento.modalidad_id"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.evento.modalidad_id },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.evento,
+                            "modalidad_id",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 mb-2" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Id Tipo Costo")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.evento.tipo_costo_id,
+                          expression: "evento.tipo_costo_id"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.evento.tipo_costo_id },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.evento,
+                            "tipo_costo_id",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 mb-2" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Costo")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.evento.costo,
+                          expression: "evento.costo"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.evento.costo },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.evento, "costo", $event.target.value)
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 mb-2" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Participantes")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.evento.participantes,
+                          expression: "evento.participantes"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.evento.participantes },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.evento,
+                            "participantes",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 mb-2" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Cantidad Evaluaciones")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.evento.cantidad_evaluaciones,
+                          expression: "evento.cantidad_evaluaciones"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.evento.cantidad_evaluaciones },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.evento,
+                            "cantidad_evaluaciones",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 mb-2" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Contrato")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.evento.contrato,
+                          expression: "evento.contrato"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.evento.contrato },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.evento, "contrato", $event.target.value)
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 mb-2" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Núm Orden de Compra")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.evento.numero_orden_compra,
+                          expression: "evento.numero_orden_compra"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.evento.numero_orden_compra },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.evento,
+                            "numero_orden_compra",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 mb-2" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Núm de Compra Bolsa")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.evento.compra_bolsa,
+                          expression: "evento.compra_bolsa"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.evento.compra_bolsa },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.evento,
+                            "compra_bolsa",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 mb-2" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Item")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.evento.item,
+                          expression: "evento.item"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.evento.item },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.evento, "item", $event.target.value)
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 mb-2" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Id Programa")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.evento.programa_id,
+                          expression: "evento.programa_id"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.evento.programa_id },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.evento,
+                            "programa_id",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 mb-2" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Id Facilitador")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.evento.facilitador_id,
+                          expression: "evento.facilitador_id"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.evento.facilitador_id },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.evento,
+                            "facilitador_id",
                             $event.target.value
                           )
                         }
@@ -1125,7 +1757,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h4", [_vm._v("Editar Facilitador")])
+      _c("h4", [_vm._v("Editar Evento")])
     ])
   },
   function() {

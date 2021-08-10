@@ -70,22 +70,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "update-facilitador",
+  name: "update-municipio",
   data: function data() {
     return {
-      facilitador: {
+      municipio: {
         nombre: "",
-        apellido: "",
-        correo: "",
+        departamento_id: "",
         _method: "patch"
       }
     };
   },
   mounted: function mounted() {
-    this.showFacilitador();
+    this.showMunicipio();
   },
   methods: {
-    showFacilitador: function showFacilitador() {
+    showMunicipio: function showMunicipio() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -94,14 +93,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this.axios.get("/api/facilitador/".concat(_this.$route.params.id)).then(function (response) {
+                return _this.axios.get("/api/municipio/".concat(_this.$route.params.id)).then(function (response) {
                   var _response$data = response.data,
                       nombre = _response$data.nombre,
-                      apellido = _response$data.apellido,
-                      correo = _response$data.correo;
-                  _this.facilitador.nombre = nombre;
-                  _this.facilitador.apellido = apellido;
-                  _this.facilitador.correo = correo;
+                      departamento_id = _response$data.departamento_id,
+                      estado = _response$data.estado;
+                  _this.municipio.nombre = nombre;
+                  _this.municipio.departamento_id = departamento_id;
+                  _this.municipio.estado = estado;
                 })["catch"](function (error) {
                   console.log(error);
                 });
@@ -123,9 +122,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return _this2.axios.post("/api/facilitador/".concat(_this2.$route.params.id), _this2.facilitador).then(function (response) {
+                return _this2.axios.post("/api/municipio/".concat(_this2.$route.params.id), _this2.municipio).then(function (response) {
                   _this2.$router.push({
-                    name: "facilitadorList"
+                    name: "municipioList"
                   });
                 })["catch"](function (error) {
                   console.log(error);
@@ -1023,21 +1022,49 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.facilitador.nombre,
-                          expression: "facilitador.nombre"
+                          value: _vm.municipio.nombre,
+                          expression: "municipio.nombre"
                         }
                       ],
                       staticClass: "form-control",
                       attrs: { type: "text" },
-                      domProps: { value: _vm.facilitador.nombre },
+                      domProps: { value: _vm.municipio.nombre },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.municipio, "nombre", $event.target.value)
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 mb-2" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("ID Departamento")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.municipio.departamento_id,
+                          expression: "municipio.departamento_id"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.municipio.departamento_id },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.$set(
-                            _vm.facilitador,
-                            "nombre",
+                            _vm.municipio,
+                            "departamento_id",
                             $event.target.value
                           )
                         }
@@ -1048,62 +1075,26 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "col-12 mb-2" }, [
                   _c("div", { staticClass: "form-group" }, [
-                    _c("label", [_vm._v("Apellidos")]),
+                    _c("label", [_vm._v("Estado")]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.facilitador.apellido,
-                          expression: "facilitador.apellido"
+                          value: _vm.municipio.estado,
+                          expression: "municipio.estado"
                         }
                       ],
                       staticClass: "form-control",
                       attrs: { type: "text" },
-                      domProps: { value: _vm.facilitador.apellido },
+                      domProps: { value: _vm.municipio.estado },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
-                          _vm.$set(
-                            _vm.facilitador,
-                            "apellido",
-                            $event.target.value
-                          )
-                        }
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-12 mb-2" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", [_vm._v("Correo")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.facilitador.correo,
-                          expression: "facilitador.correo"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text" },
-                      domProps: { value: _vm.facilitador.correo },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.facilitador,
-                            "correo",
-                            $event.target.value
-                          )
+                          _vm.$set(_vm.municipio, "estado", $event.target.value)
                         }
                       }
                     })
@@ -1125,7 +1116,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h4", [_vm._v("Editar Facilitador")])
+      _c("h4", [_vm._v("Editar Municipio")])
     ])
   },
   function() {
