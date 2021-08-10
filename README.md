@@ -1,2 +1,0 @@
-# InsaforpJuanDiaz
-Evaluación Técnica INSAFORP
