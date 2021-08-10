@@ -14,7 +14,8 @@ class TipoCostoController extends Controller
      */
     public function index()
     {
-        //
+        $tipoCostos = TipoCosto::all();
+        return response()->json($tipoCostos);
     }
 
     /**
@@ -35,7 +36,11 @@ class TipoCostoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tipoCosto = TipoCosto::create($request->post());
+        return response()->json([
+            'message'=>'Tipo de Costo ha sido creado',
+            'tipoCosto'=>$tipoCosto
+        ]);
     }
 
     /**
@@ -46,7 +51,7 @@ class TipoCostoController extends Controller
      */
     public function show(TipoCosto $tipoCosto)
     {
-        //
+        return response()->json($tipoCosto);
     }
 
     /**
@@ -69,7 +74,11 @@ class TipoCostoController extends Controller
      */
     public function update(Request $request, TipoCosto $tipoCosto)
     {
-        //
+        $tipoCosto->fill($request->post())->save();
+        return response()->json([
+            'message'=>'Tipo de Costo Actualizado',
+            'tipoCosto'=>$tipoCosto
+        ]);
     }
 
     /**
@@ -80,6 +89,9 @@ class TipoCostoController extends Controller
      */
     public function destroy(TipoCosto $tipoCosto)
     {
-        //
+        $tipoCosto->delete();
+        return response()->json([
+            'message'=>'Tipo de Costo Eliminado'
+        ]);
     }
 }

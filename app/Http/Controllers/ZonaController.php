@@ -14,7 +14,8 @@ class ZonaController extends Controller
      */
     public function index()
     {
-        //
+        $zonas = Zona::all();
+        return response()->json($zonas);
     }
 
     /**
@@ -35,7 +36,11 @@ class ZonaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $zona = Zona::create($request->post());
+        return response()->json([
+            'message'=>'Zona ha sido creado',
+            'zona'=>$zona
+        ]);
     }
 
     /**
@@ -46,7 +51,7 @@ class ZonaController extends Controller
      */
     public function show(Zona $zona)
     {
-        //
+        return response()->json($zona);
     }
 
     /**
@@ -69,7 +74,11 @@ class ZonaController extends Controller
      */
     public function update(Request $request, Zona $zona)
     {
-        //
+        $zona->fill($request->post())->save();
+        return response()->json([
+            'message'=>'Zona Actualizado',
+            'zona'=>$zona
+        ]);
     }
 
     /**
@@ -80,6 +89,9 @@ class ZonaController extends Controller
      */
     public function destroy(Zona $zona)
     {
-        //
+        $zona->delete();
+        return response()->json([
+            'message'=>'Zona Eliminado'
+        ]);
     }
 }

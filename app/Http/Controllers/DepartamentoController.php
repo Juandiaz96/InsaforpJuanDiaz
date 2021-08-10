@@ -14,7 +14,8 @@ class DepartamentoController extends Controller
      */
     public function index()
     {
-        //
+        $departamentos = Departamento::all();
+        return response()->json($departamentos);
     }
 
     /**
@@ -35,7 +36,11 @@ class DepartamentoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $departamento = Departamento::create($request->post());
+        return response()->json([
+            'message'=>'Departamento ha sido creado',
+            'departamento'=>$departamento
+        ]);
     }
 
     /**
@@ -46,7 +51,7 @@ class DepartamentoController extends Controller
      */
     public function show(Departamento $departamento)
     {
-        //
+        return response()->json($departamento);
     }
 
     /**
@@ -69,7 +74,11 @@ class DepartamentoController extends Controller
      */
     public function update(Request $request, Departamento $departamento)
     {
-        //
+        $departamento->fill($request->post())->save();
+        return response()->json([
+            'message'=>'Departamento Actualizado',
+            'departamento'=>$departamento
+        ]);
     }
 
     /**
@@ -80,6 +89,21 @@ class DepartamentoController extends Controller
      */
     public function destroy(Departamento $departamento)
     {
-        //
+        $departamento->delete();
+        return response()->json([
+            'message'=>'Departamento Eliminado'
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cargarZona() {
+        $zona = Zona::all(['id','nombre']);
+        return response()->json([
+            'zona'=>$zona
+        ]);
     }
 }

@@ -14,7 +14,8 @@ class MunicipioController extends Controller
      */
     public function index()
     {
-        //
+        $municipios = Municipio::all();
+        return response()->json($municipios);
     }
 
     /**
@@ -35,7 +36,11 @@ class MunicipioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $municipio = Municipio::create($request->post());
+        return response()->json([
+            'message'=>'Municipio ha sido creado',
+            'municipio'=>$municipio
+        ]);
     }
 
     /**
@@ -46,7 +51,7 @@ class MunicipioController extends Controller
      */
     public function show(Municipio $municipio)
     {
-        //
+        return response()->json($municipio);
     }
 
     /**
@@ -69,7 +74,11 @@ class MunicipioController extends Controller
      */
     public function update(Request $request, Municipio $municipio)
     {
-        //
+        $municipio->fill($request->post())->save();
+        return response()->json([
+            'message'=>'Municipio Actualizado',
+            'municipio'=>$municipio
+        ]);
     }
 
     /**
@@ -80,6 +89,21 @@ class MunicipioController extends Controller
      */
     public function destroy(Municipio $municipio)
     {
-        //
+        $municipio->delete();
+        return response()->json([
+            'message'=>'Municipio Eliminado'
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cargarDepartamento() {
+        $departamento = Departamento::all(['id','nombre']);
+        return response()->json([
+            'departamento'=>$departamento
+        ]);
     }
 }

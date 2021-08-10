@@ -14,7 +14,8 @@ class EventoController extends Controller
      */
     public function index()
     {
-        //
+        $eventos = Evento::all();
+        return response()->json($eventos);
     }
 
     /**
@@ -35,7 +36,11 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $evento = Evento::create($request->post());
+        return response()->json([
+            'message'=>'Evento ha sido creado',
+            'evento'=>$evento
+        ]);
     }
 
     /**
@@ -46,7 +51,7 @@ class EventoController extends Controller
      */
     public function show(Evento $evento)
     {
-        //
+        return response()->json($evento);
     }
 
     /**
@@ -69,7 +74,11 @@ class EventoController extends Controller
      */
     public function update(Request $request, Evento $evento)
     {
-        //
+        $evento->fill($request->post())->save();
+        return response()->json([
+            'message'=>'Evento Actualizado',
+            'evento'=>$evento
+        ]);
     }
 
     /**
@@ -80,6 +89,105 @@ class EventoController extends Controller
      */
     public function destroy(Evento $evento)
     {
-        //
+        $evento->delete();
+        return response()->json([
+            'message'=>'Evento Eliminado'
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cargarDepartamento() {
+        $departamento = Departamento::all(['id','nombre','ISOcode']);
+        return response()->json([
+            'departamento'=>$departamento
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cargarMunicipio() {
+        $municipio = Municipio::all(['id','nombre','departamento_id']);
+        return response()->json([
+            'municipio'=>$municipio
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cargarFacilitador() {
+        $facilitador = Facilitador::all(['id','nombre','apellido']);
+        return response()->json([
+            'facilitador'=>$facilitador
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cargarModalidad() {
+        $modalidad = Modalidad::all(['id','nombre']);
+        return response()->json([
+            'modalidad'=>$modalidad
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cargarPrograma() {
+        $programa = Programa::all(['id','nombre']);
+        return response()->json([
+            'programa'=>$programa
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cargarTipoCosto() {
+        $tipoCosto = TipoCosto::all(['id','nombre']);
+        return response()->json([
+            'tipoCosto'=>$tipoCosto
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cargarZona() {
+        $zona = Zona::all(['id','nombre']);
+        return response()->json([
+            'zona'=>$zona
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cargarHorario() {
+        $horario = tmHorario::all(['id','fecha','hora','evento_id']);
+        return response()->json([
+            'horario'=>$horario
+        ]);
     }
 }

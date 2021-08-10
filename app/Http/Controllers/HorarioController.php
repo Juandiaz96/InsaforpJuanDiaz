@@ -14,7 +14,8 @@ class HorarioController extends Controller
      */
     public function index()
     {
-        //
+        $horarios = Horario::all();
+        return response()->json($horarios);
     }
 
     /**
@@ -35,7 +36,11 @@ class HorarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $horario = Horario::create($request->post());
+        return response()->json([
+            'message'=>'Horario ha sido creado',
+            'horario'=>$horario
+        ]);
     }
 
     /**
@@ -46,7 +51,7 @@ class HorarioController extends Controller
      */
     public function show(Horario $horario)
     {
-        //
+        return response()->json($horario);
     }
 
     /**
@@ -69,7 +74,11 @@ class HorarioController extends Controller
      */
     public function update(Request $request, Horario $horario)
     {
-        //
+        $horario->fill($request->post())->save();
+        return response()->json([
+            'message'=>'Horario Actualizado',
+            'horario'=>$horario
+        ]);
     }
 
     /**
@@ -80,6 +89,9 @@ class HorarioController extends Controller
      */
     public function destroy(Horario $horario)
     {
-        //
+        $horario->delete();
+        return response()->json([
+            'message'=>'Horario Eliminado'
+        ]);
     }
 }

@@ -14,7 +14,8 @@ class ProgramaController extends Controller
      */
     public function index()
     {
-        //
+        $programas = Programa::all();
+        return response()->json($programas);
     }
 
     /**
@@ -35,7 +36,11 @@ class ProgramaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $programa = Programa::create($request->post());
+        return response()->json([
+            'message'=>'Programa ha sido creado',
+            'programa'=>$programa
+        ]);
     }
 
     /**
@@ -46,7 +51,7 @@ class ProgramaController extends Controller
      */
     public function show(Programa $programa)
     {
-        //
+        return response()->json($programa);
     }
 
     /**
@@ -69,7 +74,11 @@ class ProgramaController extends Controller
      */
     public function update(Request $request, Programa $programa)
     {
-        //
+        $programa->fill($request->post())->save();
+        return response()->json([
+            'message'=>'Programa Actualizado',
+            'programa'=>$programa
+        ]);
     }
 
     /**
@@ -80,6 +89,9 @@ class ProgramaController extends Controller
      */
     public function destroy(Programa $programa)
     {
-        //
+        $programa->delete();
+        return response()->json([
+            'message'=>'Programa Eliminado'
+        ]);
     }
 }

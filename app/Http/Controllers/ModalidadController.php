@@ -14,7 +14,8 @@ class ModalidadController extends Controller
      */
     public function index()
     {
-        //
+        $modalidades = Modalidad::all();
+        return response()->json($modalidades);
     }
 
     /**
@@ -35,7 +36,11 @@ class ModalidadController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $modalidad = Modalidad::create($request->post());
+        return response()->json([
+            'message'=>'Modalidad ha sido creado',
+            'modalidad'=>$modalidad
+        ]);
     }
 
     /**
@@ -46,7 +51,7 @@ class ModalidadController extends Controller
      */
     public function show(Modalidad $modalidad)
     {
-        //
+        return response()->json($modalidad);
     }
 
     /**
@@ -69,7 +74,11 @@ class ModalidadController extends Controller
      */
     public function update(Request $request, Modalidad $modalidad)
     {
-        //
+        $modalidad->fill($request->post())->save();
+        return response()->json([
+            'message'=>'Modalidad Actualizado',
+            'modalidad'=>$modalidad
+        ]);
     }
 
     /**
@@ -80,6 +89,9 @@ class ModalidadController extends Controller
      */
     public function destroy(Modalidad $modalidad)
     {
-        //
+        $modalidad->delete();
+        return response()->json([
+            'message'=>'Modalidad Eliminado'
+        ]);
     }
 }
