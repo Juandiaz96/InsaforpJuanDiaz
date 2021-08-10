@@ -3,7 +3,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Nuevo Facilitador</h4>
+                    <h4>Nuevo Modalidad</h4>
                 </div>
                 <div class="card-body">
                     <form @submit.prevent="create">
@@ -11,19 +11,7 @@
                             <div class="col-12 mb-2">
                                 <div class="form-group">
                                     <label>Nombre</label>
-                                    <input type="text" class="form-control" v-model="facilitador.nombre">
-                                </div>
-                            </div>
-                            <div class="col-12 mb-2">
-                                <div class="form-group">
-                                    <label>Apellidos</label>
-                                    <input type="text" class="form-control" v-model="facilitador.apellido">
-                                </div>
-                            </div>
-                            <div class="col-12 mb-2">
-                                <div class="form-group">
-                                    <label>Correo</label>
-                                    <input type="text" class="form-control" v-model="facilitador.correo">
+                                    <input type="text" class="form-control" v-model="modalidad.nombre">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -39,20 +27,18 @@
 
 <script>
 export default {
-    name:"add-facilitador",
+    name:"add-modalidad",
     data(){
         return {
-            facilitador:{
-                nombre:"",
-                apellido:"",
-                correo:""
+            modalidad:{
+                nombre:""
             }
         }
     },
     methods:{
         async create(){
-            await this.axios.post('/api/facilitador',this.facilitador).then(response=>{
-                this.$router.push({name:"facilitadorList"})
+            await this.axios.post('/api/modalidad',this.modalidad).then(response=>{
+                this.$router.push({name:"modalidadList"})
             }).catch(error=>{
                 console.log(error)
             })

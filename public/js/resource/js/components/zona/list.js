@@ -75,22 +75,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "facilitadores",
+  name: "zonas",
   data: function data() {
     return {
-      facilitadores: []
+      zonas: []
     };
   },
   mounted: function mounted() {
-    this.getFacilitadores();
+    this.getZonas();
   },
   methods: {
-    getFacilitadores: function getFacilitadores() {
+    getZonas: function getZonas() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -99,11 +95,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this.axios.get('/api/facilitador').then(function (response) {
-                  _this.facilitadores = response.data;
+                return _this.axios.get('/api/zona').then(function (response) {
+                  _this.zonas = response.data;
                 })["catch"](function (error) {
                   console.log(error);
-                  _this.facilitadores = [];
+                  _this.zonas = [];
                 });
 
               case 2:
@@ -114,12 +110,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
-    deleteFacilitador: function deleteFacilitador(id) {
+    deleteZona: function deleteZona(id) {
       var _this2 = this;
 
       if (confirm("Está seguro de eliminar el registro?")) {
-        this.axios["delete"]("/api/facilitador/".concat(id)).then(function (response) {
-          _this2.getFacilitadores();
+        this.axios["delete"]("/api/zona/".concat(id)).then(function (response) {
+          _this2.getZonas();
         })["catch"](function (error) {
           console.log(error);
         });
@@ -991,7 +987,7 @@ var render = function() {
           "router-link",
           {
             staticClass: "btn btn-primary",
-            attrs: { to: { name: "facilitadorAdd" } }
+            attrs: { to: { name: "zonaAdd" } }
           },
           [_vm._v("Nuevo")]
         )
@@ -1008,24 +1004,18 @@ var render = function() {
             _c("table", { staticClass: "table table-bordered" }, [
               _vm._m(1),
               _vm._v(" "),
-              _vm.facilitadores.length > 0
+              _vm.zonas.length > 0
                 ? _c(
                     "tbody",
-                    _vm._l(_vm.facilitadores, function(facilitador, key) {
+                    _vm._l(_vm.zonas, function(zona, key) {
                       return _c("tr", { key: key }, [
-                        _c("td", [_vm._v(_vm._s(facilitador.id))]),
+                        _c("td", [_vm._v(_vm._s(zona.id))]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(facilitador.nombre))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(facilitador.apellido))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(facilitador.correo))]),
+                        _c("td", [_vm._v(_vm._s(zona.nombre))]),
                         _vm._v(" "),
                         _c("td", [
                           _vm._v(
-                            _vm._s(
-                              facilitador.estado == 1 ? "ACTIVO" : "INACTIVO"
-                            )
+                            _vm._s(zona.estado == 1 ? "ACTIVO" : "INACTIVO")
                           )
                         ]),
                         _vm._v(" "),
@@ -1038,8 +1028,8 @@ var render = function() {
                                 staticClass: "btn btn-success",
                                 attrs: {
                                   to: {
-                                    name: "facilitadorEdit",
-                                    params: { id: facilitador.id }
+                                    name: "zonaEdit",
+                                    params: { id: zona.id }
                                   }
                                 }
                               },
@@ -1053,7 +1043,7 @@ var render = function() {
                                 attrs: { type: "button" },
                                 on: {
                                   click: function($event) {
-                                    return _vm.deleteFacilitador(facilitador.id)
+                                    return _vm.deleteZona(zona.id)
                                   }
                                 }
                               },
@@ -1080,7 +1070,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h4", [_vm._v("Listado de Facilitadores")])
+      _c("h4", [_vm._v("Listado de Zonas")])
     ])
   },
   function() {
@@ -1092,10 +1082,6 @@ var staticRenderFns = [
         _c("th", [_vm._v("ID")]),
         _vm._v(" "),
         _c("th", [_vm._v("Nombre")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Apellido")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Correo")]),
         _vm._v(" "),
         _c("th", [_vm._v("Estado")]),
         _vm._v(" "),
@@ -1109,7 +1095,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("tr", [
       _c("td", { attrs: { colspan: "6", align: "center" } }, [
-        _vm._v("No hay facilitadores registrados.")
+        _vm._v("No hay zonas registradas.")
       ])
     ])
   }

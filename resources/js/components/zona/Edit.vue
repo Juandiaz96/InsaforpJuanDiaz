@@ -3,7 +3,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Editar Facilitador</h4>
+                    <h4>Editar Zona</h4>
                 </div>
                 <div class="card-body">
                     <form @submit.prevent="update">
@@ -11,19 +11,7 @@
                             <div class="col-12 mb-2">
                                 <div class="form-group">
                                     <label>Nombre</label>
-                                    <input type="text" class="form-control" v-model="facilitador.nombre">
-                                </div>
-                            </div>
-                            <div class="col-12 mb-2">
-                                <div class="form-group">
-                                    <label>Apellidos</label>
-                                    <input type="text" class="form-control" v-model="facilitador.apellido">
-                                </div>
-                            </div>
-                            <div class="col-12 mb-2">
-                                <div class="form-group">
-                                    <label>Correo</label>
-                                    <input type="text" class="form-control" v-model="facilitador.correo">
+                                    <input type="text" class="form-control" v-model="zona.nombre">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -39,34 +27,30 @@
 
 <script>
 export default {
-    name:"update-facilitador",
+    name:"update-zona",
     data(){
         return {
-            facilitador:{
+            zona:{
                 nombre:"",
-                apellido:"",
-                correo:"",
                 _method:"patch"
             }
         }
     },
     mounted(){
-        this.showFacilitador()
+        this.showZona()
     },
     methods:{
-        async showFacilitador(){
-            await this.axios.get(`/api/facilitador/${this.$route.params.id}`).then(response=>{
-                const { nombre,apellido,correo } = response.data
-                this.facilitador.nombre = nombre
-                this.facilitador.apellido = apellido
-                this.facilitador.correo = correo
+        async showZona(){
+            await this.axios.get(`/api/zona/${this.$route.params.id}`).then(response=>{
+                const { nombre } = response.data
+                this.zona.nombre = nombre
             }).catch(error=>{
                 console.log(error)
             })
         },
         async update(){
-            await this.axios.post(`/api/facilitador/${this.$route.params.id}`,this.facilitador).then(response=>{
-                this.$router.push({name:"facilitadorList"})
+            await this.axios.post(`/api/zona/${this.$route.params.id}`,this.zona).then(response=>{
+                this.$router.push({name:"zonaList"})
             }).catch(error=>{
                 console.log(error)
             })

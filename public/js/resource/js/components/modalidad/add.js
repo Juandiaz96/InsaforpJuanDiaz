@@ -1052,12 +1052,6 @@ var render = function() {
                     _c("input", {
                       directives: [
                         {
-                          name: "mask",
-                          rawName: "v-mask",
-                          value: "examen@example.com",
-                          expression: "'examen@example.com'"
-                        },
-                        {
                           name: "model",
                           rawName: "v-model",
                           value: _vm.facilitador.correo,

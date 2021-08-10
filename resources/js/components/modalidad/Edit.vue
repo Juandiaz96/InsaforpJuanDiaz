@@ -3,7 +3,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Editar Facilitador</h4>
+                    <h4>Editar Modalidad</h4>
                 </div>
                 <div class="card-body">
                     <form @submit.prevent="update">
@@ -11,19 +11,7 @@
                             <div class="col-12 mb-2">
                                 <div class="form-group">
                                     <label>Nombre</label>
-                                    <input type="text" class="form-control" v-model="facilitador.nombre">
-                                </div>
-                            </div>
-                            <div class="col-12 mb-2">
-                                <div class="form-group">
-                                    <label>Apellidos</label>
-                                    <input type="text" class="form-control" v-model="facilitador.apellido">
-                                </div>
-                            </div>
-                            <div class="col-12 mb-2">
-                                <div class="form-group">
-                                    <label>Correo</label>
-                                    <input type="text" class="form-control" v-model="facilitador.correo">
+                                    <input type="text" class="form-control" v-model="modalidad.nombre">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -39,34 +27,30 @@
 
 <script>
 export default {
-    name:"update-facilitador",
+    name:"update-modalidad",
     data(){
         return {
-            facilitador:{
+            modalidad:{
                 nombre:"",
-                apellido:"",
-                correo:"",
                 _method:"patch"
             }
         }
     },
     mounted(){
-        this.showFacilitador()
+        this.showModalidad()
     },
     methods:{
-        async showFacilitador(){
-            await this.axios.get(`/api/facilitador/${this.$route.params.id}`).then(response=>{
-                const { nombre,apellido,correo } = response.data
-                this.facilitador.nombre = nombre
-                this.facilitador.apellido = apellido
-                this.facilitador.correo = correo
+        async showModalidad(){
+            await this.axios.get(`/api/modalidad/${this.$route.params.id}`).then(response=>{
+                const { nombre } = response.data
+                this.modalidad.nombre = nombre
             }).catch(error=>{
                 console.log(error)
             })
         },
         async update(){
-            await this.axios.post(`/api/facilitador/${this.$route.params.id}`,this.facilitador).then(response=>{
-                this.$router.push({name:"facilitadorList"})
+            await this.axios.post(`/api/modalidad/${this.$route.params.id}`,this.modalidad).then(response=>{
+                this.$router.push({name:"modalidadList"})
             }).catch(error=>{
                 console.log(error)
             })
